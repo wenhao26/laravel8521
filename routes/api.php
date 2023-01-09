@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/apiTest', function () {
     return 123;
 });
+
+// 测试
+Route::get('info', [TestController::class, 'list'])->setBindingFields(['is_list' => true]);
+Route::get('info', [TestController::class, 'info']);
